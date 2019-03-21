@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.tv.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Ctech extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Ctech";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//电视 赛百纳(Ctech) 1
+"00e05b003582338110281e2863281e29632863281e281e281e2963291e281e291e281e2863291e2864291e291e2962286328632a1e2863286328632964281e291e2962286328642a1e291e291f28632863291f291e281e2a63286329632985bd823a811029000000000000000000",
+//电视 赛百纳(Ctech) 2
+"00e05b00338234811028202863291e28632a63291f281f281f2863281f291e281e291e2863291e2864281e281f286329642863281e2863296329632963281e281f286328632863281e281f281e28632963291e291e291e2962286328632985bd823b811028000000000000000000",
+};
+}

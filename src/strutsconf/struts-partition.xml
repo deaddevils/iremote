@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="partition" namespace="/partition" extends="iremotebasepackage">
+        <action name="editpartition" class="com.iremote.action.partition.EditPartition" method="execute"/>
+        <action name="setpartitionarmstatus" class="com.iremote.action.partition.SetPartitionArmStatus" method="execute"/>
+        <action name="querypartitionarmoperationstatus" class="com.iremote.action.partition.QueryPartitionArmOperationStatus" method="execute"/>
+        <action name="addpartition" class="com.iremote.action.partition.AddPartition" method="execute"/>
+        <action name="deletepartition" class="com.iremote.action.partition.DeletePartition" method="execute"/>
+        <action name="addpartitionappliance" class="com.iremote.action.room.AddPartitionAppliance" method="execute"/>
+           <action name="deletepartitionappliance" class="com.iremote.action.room.DeletePartitionAppliance" method="execute"/>
+    </package>
+</struts>

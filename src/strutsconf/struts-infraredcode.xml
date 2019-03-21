@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+       <package name="infraredcode" namespace="/infraredcode"  extends="json-default">
+           <interceptors>  
+           		<interceptor name="releaseInterceptor"  class="com.iremote.interceptor.HibernateReleaseInterceptor"/>  
+		    	<interceptor name="logInterceptor"  class="com.iremote.interceptor.LogInterceptor"/>
+		    	<interceptor name="httpsInterceptor"  class="com.iremote.interceptor.HttpsInterceptor"/>
+		    	<interceptor name="sessionInterceptor"  class="com.iremote.interceptor.SessionInterceptor"/>
+		        <interceptor-stack name="nosession">  
+		             <interceptor-ref name="defaultStack" />
+		             <interceptor-ref name="httpsInterceptor" />  
+		             <interceptor-ref name="releaseInterceptor" />  
+		             <interceptor-ref name="logInterceptor" />  
+		        </interceptor-stack>  
+		    </interceptors>  
+		    
+  			<default-interceptor-ref name="nosession"/>
+  		   <global-results>
+	     	 <result name="success" type="json">
+	     	 	<param name="excludeNullProperties">true</param>
+	     	 	<param name="ignoreHierarchy">false</param>
+	     	 </result>
+	      </global-results>
+	      
+          <action name="downloadaccodeliberay" class="com.iremote.infraredcode.ac.ACCodeLiberay" method="execute"/>
+          <action name="querycodelibeary" class="com.iremote.infraredcode.QueryCodeLiberayAction" method="execute"/>
+          <action name="downloadcodelibeary" class="com.iremote.infraredcode.DownloadCodeLiberay" method="execute"/>
+          <action name="downloadproductorcodeliberay" class="com.iremote.infraredcode.Downloadproductorcodeliberay" method="execute"/>
+      </package>
+</struts>

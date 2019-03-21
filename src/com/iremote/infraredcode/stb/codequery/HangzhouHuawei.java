@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class HangzhouHuawei extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "HangzhouHuawei";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 杭州华为(Hangzhou Huawei) 1
+"00e047003382328110281f291f2a1f29652920282028662820286629662866281f296529652966281f29202865281f2966291f281f281f291f2865292028652820286628652965296528899b823c8086290000000000000000000000000000000000000000000000000000000000",
+//机顶盒 杭州华为(Hangzhou Huawei) 2
+"00e0470035823381102a1f281f292028652920282028652820286628652a65291f296528662966281e28202966291f28652a1f291f291f291f286528202866281f28652a652965286529899b823c8086290000000000000000000000000000000000000000000000000000000000",
+};
+}

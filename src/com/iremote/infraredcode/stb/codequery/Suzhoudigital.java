@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Suzhoudigital extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Suzhoudigital";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 苏州数字(Suzhou digital) 1
+"00e037003582328110296328632a1f2a1f2963291f2863291f2a1f291f291f291f296329202864291f29632963286428202863291f2964281f288bc6823b808629000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+//机顶盒 苏州数字(Suzhou digital) 2
+"00e0370033823381102a632863281f2a1f2a63291f2963281f2920281f281f291f2963291f29642820286329642864281f2864281f28642820288bc6823b808729000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+};
+}

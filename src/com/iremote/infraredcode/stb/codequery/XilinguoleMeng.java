@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class XilinguoleMeng extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "XilinguoleMeng";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//»ú¶¥ºĞ ÎıÁÖ¹ùÀÕÃË(Xilinguole Meng) 1
+"00e047003382338110291f291f2920281f282028202820282029652865296529662866286528662866281f28652a1f296529202820282028202866281f2965291f296529662966286528899c823b8086280000000000000000000000000000000000000000000000000000000000",
+//»ú¶¥ºĞ ÎıÁÖ¹ùÀÕÃË(Xilinguole Meng) 2
+"00e047003382348110281f2a1f291f291f291f281f282028202866286529652965296629652965286728202866291f2965291f291f292028202866282028662920286628652a65296529899c823c8086280000000000000000000000000000000000000000000000000000000000",
+};
+}

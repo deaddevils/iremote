@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Zibocablethree extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Zibocablethree";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 淄博有线三(Zibo cable three) 1
+"00e0470033823481112820291f2965291f291f291f2920281f28662866281f28652a65296528662966281f282129662866281f291f2a1f291f2965286628202820286629652965286529899b823b8086290000000000000000000000000000000000000000000000000000000000",
+//机顶盒 淄博有线三(Zibo cable three) 2
+"00e047003582338110291f291f2965282028202820291f281f28652a65291f29662866286528652866281f281f2965296529202820281f2820286628652a1f291f296529662966286528899b823b8086280000000000000000000000000000000000000000000000000000000000",
+};
+}

@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.tv.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Anitech extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Anitech";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//电视 Anitech(Anitech) 1
+"00e049003481148114281e296328652864291e291e281e291e291f296328642964291e291e281f291e281f291e2865281f2964291e291e291e29642864291e2963291f296328642964298b3f811f8115296228000000000000000000000000000000000000000000000000000000",
+//电视 Anitech(Anitech) 2
+"00e049003481178114281e286428642863291e281f291e2820281e286429632865281f291e281e291f281e291e2863291e2865281f291e291e29632963281f2864281e296328642964298b3f811f8115296128000000000000000000000000000000000000000000000000000000",
+};
+}

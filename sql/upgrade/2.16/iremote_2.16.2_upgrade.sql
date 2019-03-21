@@ -1,0 +1,1 @@
+insert into messagetemplate(`key`, language, platform, value) values("bluetoothuser", "zh_CN", 0, "蓝牙"),("bluetoothuser", "en_US", 0, "BT"),("bluetoothuser", "fr_CA", 0, "BT"),("bluetoothuser", "vi_VN", 0, "BT");

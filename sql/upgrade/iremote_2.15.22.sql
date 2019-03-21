@@ -1,0 +1,1 @@
+insert into systemparameter (`key`,strvalue) values('standardzwaveproductor','["012980021000"]');

@@ -1,0 +1,161 @@
+.listpage
+{
+	background-color:#f4f4f4;
+	margin:0px;
+	padding:0px;
+}
+
+.operation_page
+{
+	margin:0px;
+	padding:0px;
+}
+
+.operation_line
+{
+	height:1px;
+	border:none;
+	border-top:1px solid #e5e5e5;
+}
+
+.title_table
+{
+	background-color:#ffffff;
+	width:100%;
+	height:50px;
+}
+
+.title_icon_back
+{
+	margin-left:2px;
+	width:32px;
+	height:32px;
+}
+
+.title_c
+{
+	font: normal 20px arial, sans-serif; 
+	font-family:"Microsoft YaHei";
+	display:-webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.list_conent
+{
+	float:left;
+	font: normal 18px arial, sans-serif; 
+	font-family:"Source Han Sans";
+	color:#333333;
+	margin-left:5px;
+	display:-webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.content_font
+{
+	font: normal 18px arial, sans-serif; 
+	font-family:"Source Han Sans";
+	color:#333333;
+}
+
+.content_wrap
+{
+	white-space: nowrap; 
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+
+.list_icon_div
+{
+	float:left;
+	height:100%;
+	width:32px;
+	height:32px;
+}
+
+.list_icon
+{
+	float:left;
+	margin-left:5px;
+	width:32px;
+	height:32px;
+}
+
+.list_function_icon
+{
+	width:32px;
+	height:32px;
+}
+
+.list_function_icon_div
+{
+	float:right;
+	height:100%;
+	width:40px;
+}
+
+.list_content_table
+{
+	border-collapse:collapse;
+	border-spacing:0;
+	border-left:1px solid #f4f4f4;
+	border-top:1px solid #f4f4f4;
+	background:#ffffff;
+	width:100%
+}
+
+
+.list_content_table_tr
+{
+	border-right:1px solid #f4f4f4;
+	border-bottom:1px solid #f4f4f4;
+	padding:5px 15px;
+	height:48px;
+}
+
+div
+{
+	-webkit-tap-highlight-color:rgba(0,0,0,0); 
+}
+
+.tip_img
+{
+	width:360px;
+	height:320px;
+}
+
+.message
+{
+	display:block;
+	font: normal 20px arial, sans-serif; 
+	font-family:"Microsoft YaHei";
+	margin-top: 20px; 
+}
+ 
+.backgrouddiv
+{
+	background:#ffffff;
+	margin-top:5px;
+}
+
+.nav_img
+{
+	width:32px;
+	height:32px;
+}
+
+.check_box_uncheck
+{
+	background:url(/iremote/images/lock/lock_btn_no.png) 0px 7px no-repeat ;
+	background-size:32px 32px;
+}
+
+.check_box_checked
+{
+	background:url(/iremote/images/lock/lock_btn_pitch.png) 0px 7px no-repeat ;
+	background-size:32px 32px;
+}

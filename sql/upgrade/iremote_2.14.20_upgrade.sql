@@ -1,0 +1,1 @@
+ALTER TABLE `infrareddevice` ADD COLUMN `encrypted` BOOLEAN DEFAULT FALSE NULL AFTER `statuses`; 

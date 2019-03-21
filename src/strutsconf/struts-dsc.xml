@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="dsc" namespace="/dsc" extends="iremotebasepackage">
+        <action name="setchannelenablestatus" class="com.iremote.action.partition.SetChannelEnableStatus" method="execute"/>
+        <action name="querysetchannelenablestatusstatus" class="com.iremote.action.partition.QuerySetChannelEnabletatusStatus" method="execute"/>
+    </package>
+</struts>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>  
+    <package name="lock" namespace="/device/lock"  extends="iremotebasepackage">	
+    
+    	 <global-results> 
+		      <result name="error">/jsp/error.jsp</result>  
+		      <result name="errHandler">/jsp/error.jsp</result>  
+		      <result name="SESSION_TIMEOUT">/jsp/sessiontimeoutpage.jsp</result>
+		 </global-results> 
+		      
+    	  <action name="listlockuser" class="com.iremote.action.device.doorlock.ListLockUserAction" method="execute">
+    	  	 	<result>/jsp/doorlock/doorlockuser/listdoorlockuser.jsp</result> 
+    	  </action>
+    	  
+    	  <action name="addlockusermenu" class="com.iremote.action.device.doorlock.AddLockUserMenuAction" method="execute">
+    	  	 	<result>/jsp/doorlock/doorlockuser/adddoorlockmenu.jsp</result> 
+    	  </action>
+    	  <action name="addlockuserpage" class="com.iremote.action.device.doorlock.AddLockUserPageAction" method="execute">
+    	  	 	<result>/jsp/doorlock/doorlockuser/adddoorlockuser.jsp</result> 
+    	  </action> 
+          <action name="addlockuser" class="com.iremote.action.device.doorlock.AddLockUserAction" method="execute">
+          		<result name="gatewayoffline">/jsp/doorlock/doorlockuser/wakeupgateway.jsp</result> 
+          		<result name="sendingpassword">/jsp/doorlock/doorlockuser/sendingpassword.jsp</result> 
+          		<result name="inputfingerprint">/jsp/doorlock/doorlockuser/inputfingerprint.jsp</result>
+          		<result name="devicebussing">/jsp/doorlock/doorlockuser/devicebussing.jsp</result>
+          		<result name="failed">/jsp/doorlock/doorlockuser/adddoorlockuserfailed.jsp</result>
+          		<result name="inputcard">/jsp/doorlock/doorlockuser/inputcard.jsp</result>
+          </action> 
+		  <action name="editlockuser" class="com.iremote.action.device.doorlock.EditLockUserAction" method="execute"/>
+		  <action name="deletelockuser" class="com.iremote.action.device.doorlock.DeleteLockUserAction" method="execute">
+		  		<result name="sendingcommand">/jsp/doorlock/doorlockuser/sendingdeletecommand.jsp</result> 
+		  		<result name="success">/jsp/doorlock/doorlockuser/deletedoorlockusersuccess.jsp</result> 
+		  		<result name="deletefailed">/jsp/doorlock/doorlockuser/deletedoorlockuserfailed.jsp</result> 
+		  		<result name="error">/jsp/doorlock/doorlockuser/deletedoorlockuserfailed.jsp</result>
+		  		<result name="gatewayoffline">/jsp/doorlock/doorlockuser/wakeupgateway.jsp</result>  
+		  		<result name="devicebussing">/jsp/doorlock/doorlockuser/devicebussing.jsp</result> 
+		  </action>
+		  <action name="sendtemppassword" class="com.iremote.thirdpart.cobbe.action.SendDoorlockPasswordAction" method="execute"/>
+		  <action name="querytemppassword" class="com.iremote.thirdpart.cobbe.action.QueryDoorlockTempPasswordAction" method="execute"/>
+		  <action name="getlockoperationstatus" class="com.iremote.action.device.doorlock.GetLockOperationStatusAction" method="execute"/>
+		  <action name="showlockmessage" class="com.iremote.action.device.doorlock.ShowDoorlockMessageAction" method="execute">
+		  		<result name="gatewayoffline">/jsp/doorlock/doorlockuser/wakeupgateway.jsp</result> 
+          		<result name="sendingpassword">/jsp/doorlock/doorlockuser/sendingpassword.jsp</result> 
+          		<result name="sendingcommand">/jsp/doorlock/doorlockuser/sendingdeletecommand.jsp</result> 
+          		<result name="inputfingerprint">/jsp/doorlock/doorlockuser/inputfingerprint.jsp</result> 
+          		<result name="inputfingerprintagain">/jsp/doorlock/doorlockuser/inputfingerprintagain.jsp</result> 
+          		<result name="failed">/jsp/doorlock/doorlockuser/adddoorlockuserfailed.jsp</result> 
+          		<result name="success">/jsp/doorlock/doorlockuser/adddoorlockusersuccess.jsp</result>
+          		<result name="editsuccess">/jsp/doorlock/doorlockuser/updatasuccess.jsp</result>  
+          		<result name="editfailed">/jsp/doorlock/doorlockuser/editdoorlockuserfailed.jsp</result> 
+          		<result name="deletefailed">/jsp/doorlock/doorlockuser/deletedoorlockuserfailed.jsp</result> 
+          		<result name="deletesuccess">/jsp/doorlock/doorlockuser/deletedoorlockusersuccess.jsp</result> 
+          		<result name="devicebussing">/jsp/doorlock/doorlockuser/devicebussing.jsp</result>
+          		<result name="inputcard">/jsp/doorlock/doorlockuser/inputcard.jsp</result>
+          		<result name="cardinuse">/jsp/doorlock/doorlockuser/adddoorlockuserfailed.jsp</result>
+          		<result name="outofmemery">/jsp/doorlock/doorlockuser/adddoorlockuserfailed.jsp</result>
+          		<result name="cardexpired">/jsp/doorlock/doorlockuser/adddoorlockuserfailed.jsp</result>
+          		<result name="clonecar">/jsp/doorlock/doorlockuser/adddoorlockuserfailed.jsp</result>
+		  </action>
+		  <action name="editlockuserbynotification" class="com.iremote.action.device.doorlock.EditLockUserbyNotificationAction" method="execute"/>
+		  <action name="showDoorlockUserAction" class="com.iremote.action.device.doorlock.ShowDoorlockUserAction" method="execute">
+		  	<result name="success">/jsp/doorlock/doorlockuser/editdoorlockuser.jsp</result>
+		  	<result name="error">/jsp/doorlock/doorlockuser/editdoorlockuserfailed.jsp</result>
+		  </action>
+		  <action name="editDoorlockUserAlarmAction" class="com.iremote.action.device.doorlock.EditDoorlockUserAlarmAction" method="execute">
+		  	<result name="success">/jsp/doorlock/doorlockuser/updatasuccess.jsp</result>
+		  	<result name="editsuccess">/jsp/doorlock/doorlockuser/updatasuccess.jsp</result>  
+		  	<result name="error">/jsp/doorlock/doorlockuser/editdoorlockuserfailed.jsp</result>
+			<result name="devicebussing">/jsp/doorlock/doorlockuser/devicebussing.jsp</result> 
+		  	<result name="gatewayoffline">/jsp/doorlock/doorlockuser/wakeupgateway.jsp</result>
+		  </action>
+		  <action name="sendCurrentTime" class="com.iremote.action.device.doorlock.SendCurrentTimeAction" method="execute"/>
+    	  <action name="addDoorlockCard" class="com.iremote.action.device.doorlock.AddDoorlockCardAction" method="execute"/>
+      	  <action name="deleteDoorlockCard" class="com.iremote.action.device.doorlock.DeleteDoorlockCardAction" method="execute"/>
+    	  <action name="updatedoorlocktime" class="com.iremote.action.device.doorlock.UpdateDoorlockTimeAction" method="execute"/>
+    	  <action name="querylockpasswordpackage" class="com.iremote.action.device.doorlock.QueryLockpasswordPackageAction" method="execute"/>
+    	  <action name="updatedoorlockkey" class="com.iremote.action.device.doorlock.UpdateDoorlockKeyAction" method="execute"/>
+    	  <action name="doorlockopenedbybluetooth" class="com.iremote.action.device.doorlock.DoorLockOpenedByBlueTeethAction" method="execute"/>
+    	  <action name="updatedoorlocktimesuccess" class="com.iremote.action.device.doorlock.UpdateDoorlockTimeSuccessAction" method="execute"/>
+    	  
+    </package>
+
+</struts>

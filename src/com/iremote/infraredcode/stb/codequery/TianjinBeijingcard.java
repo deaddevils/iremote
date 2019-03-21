@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class TianjinBeijingcard extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "TianjinBeijingcard";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 天津北京牌(Tianjin Beijing card) 1
+"00e0470033823381112920281f29202865281f29202820291f291f286528652920281f28672866286529652965281f2920281f29202865281f28202820296528652a6529652820286728899b823b8087280000000000000000000000000000000000000000000000000000000000",
+//机顶盒 天津北京牌(Tianjin Beijing card) 2
+"00e047003382338110281f281f282028662820281f281f2a1f291f296528662820282028662965286628652965291f291f281f282028662820281f281f29652965296628662820286629899b823b8087290000000000000000000000000000000000000000000000000000000000",
+};
+}

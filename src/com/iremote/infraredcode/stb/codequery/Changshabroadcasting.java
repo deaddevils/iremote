@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Changshabroadcasting extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Changshabroadcasting";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 长沙广电(Changsha broadcasting) 1
+"00e04700338234811029202820281f291f291f292028652820281f281f29652965281f29652a1f291f2965281f286529202820291f2965281f291f29652820286628652866281f2965298994823b8087280000000000000000000000000000000000000000000000000000000000",
+//机顶盒 长沙广电(Changsha broadcasting) 2
+"00e04700338234810f292028202820281f291f2920286529202820282028652965291f2865291f2920296628202866281f282028202865291f29202865292028662a65286628202865288995823b8086290000000000000000000000000000000000000000000000000000000000",
+};
+}

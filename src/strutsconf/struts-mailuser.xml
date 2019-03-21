@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+    <package name="mailuser" namespace="/mailuser" extends="iremotebasepackage">
+            <default-interceptor-ref name="nosession"/>
+        <action name="mailregist" class="cn.com.isurpass.iremote.webconsole.user.MailRegist" method="execute">
+            <interceptor-ref name="nosession"/>
+            <result>/jsp/mailuser/mailregist.jsp</result>
+        </action>
+        <action name="mailresetpassword" class="cn.com.isurpass.iremote.webconsole.user.MailResetPassword" method="execute">
+            <interceptor-ref name="nosession"/>
+            <result>/jsp/mailuser/mailresetpassword.jsp</result>
+        </action>
+        <action name="register" class="com.iremote.action.mailuser.RegisteMailUserAction" method="execute"/>
+        <action name="enableduser" class="com.iremote.action.mailuser.EnabledMailUserAction" method="execute">
+            <result name="success">/jsp/webconsole/success.jsp</result>
+            <result name="error">/jsp/webconsole/error.jsp</result>
+        </action>
+        <action name="login" class="com.iremote.action.mailuser.MailUserLoginAction" method="execute"/>
+        <action name="resetpassword" class="com.iremote.action.mailuser.MailUserResetPasswordAction" method="execute"/>
+        <action name="resetpasswordpage" class="com.iremote.action.mailuser.MailUserResetPasswordPageAction" method="execute">
+            <result name="success">/jsp/mailuser/resetpassword.jsp</result>
+            <result name="error">/jsp/webconsole/error.jsp</result>
+        </action>
+        <action name="resetpasswordset" class="com.iremote.action.mailuser.MailUserResetPasswordSetAction" method="execute">
+            <result name="success">/jsp/webconsole/success.jsp</result>
+            <result name="error">/jsp/webconsole/error.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+      
+      <package name="warning" namespace="/warning" extends="iremotebasepackage">
+           <action name="querynotification" class="com.iremote.action.notification.QueryNotificationAction" method="execute"/>
+           <action name="deletenotification" class="com.iremote.action.notification.DeleteNotificationAction" method="execute"/>
+           <action name="clearnotification" class="com.iremote.action.notification.ClearNotificationAction" method="execute"/>
+           <action name="unalarmnotification" class="com.iremote.action.notification.UnalarmNotificationAction" method="execute"/>
+           <action name="unalarmallnotification" class="com.iremote.action.notification.UnAlarmAllNotificationAction" method="execute"/>
+           <action name="unalarmcameranotification" class="com.iremote.action.notification.UnalarmCameraNotificationAction" method="execute"/>
+           <action name="querynotificationsetting" class="com.iremote.action.notification.QueryNotificationSettingAction" method="execute"/>
+           <action name="setnotificationsetting" class="com.iremote.action.notification.SetNotificationSettingAction" method="execute"/>
+           <action name="deletenotificationsetting" class="com.iremote.action.notification.DeleteNotificationSettingAction" method="execute"/>
+          <action name="setnotificationsetting2" class="com.iremote.action.notification.SetNotificationSetting2Action" method="execute"/>
+          <action name="querynotificationsetting2" class="com.iremote.action.notification.QueryNotificationSettingAction2" method="execute"/>
+      </package>
+</struts>

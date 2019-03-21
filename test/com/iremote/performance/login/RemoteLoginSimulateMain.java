@@ -1,0 +1,356 @@
+package com.iremote.performance.login;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class RemoteLoginSimulateMain 
+{
+	private static ExecutorService executor = Executors.newCachedThreadPool();
+	
+	private int count = 300 ;
+	private List<RemoteLoginSimulateThread> threadlst = new ArrayList<RemoteLoginSimulateThread>(count);
+	
+	public static void main(String arg[])
+	{
+		RemoteLoginSimulateMain ists = new RemoteLoginSimulateMain();
+		ists.initpara(arg);
+		ists.start();
+	}
+	
+	private void initpara(String arg[])
+	{
+		for ( int i = 0 ; i < arg.length ; i ++ )
+		{
+			if ( "-count".equals(arg[i]))
+			{
+				i ++ ;
+				count = Integer.valueOf(arg[i]);
+			}
+		}
+	}
+	
+	private void start()
+	{
+		for ( int i = 0 ; i < count && i < DEVICE_ID.length ; i ++ )
+		{
+			//RemoteLoginSimulateThread t = new RemoteLoginSimulateThread(String.format("TiRemote2005000%05d", i) );
+			RemoteLoginSimulateThread t = new RemoteLoginSimulateThread(DEVICE_ID[i] );
+			executor.execute(t);
+			threadlst.add(t);
+		}
+		
+		for ( ; ; )
+		{
+			int lc = 0 ;
+			int discount = 0 ;
+			for ( RemoteLoginSimulateThread t : threadlst )
+			{
+				if ( t.isLogined())
+					lc ++ ;
+				discount += t.getDisconnect();
+			}
+			System.out.println(String.format("%d/%d , %d", lc , threadlst.size() , discount));
+			
+			try {
+				Thread.sleep(3*1000);
+			} catch (InterruptedException e) {
+				return ;
+			}
+		}
+		
+	}
+	
+	private static String[] DEVICE_ID = new String[]{"iRemote2005000000560"};
+	/*
+	private static String[] DEVICE_ID = new String[]{
+			"iRemote2005000000001",
+			"iRemote2005000000003",
+			"iRemote2005000000007",
+			"iRemote2005000000010",
+			"iRemote2005000000011",
+			"iRemote2005000000016",
+			"iRemote2005000000017",
+			"iRemote2005000000019",
+			"iRemote2005000000025",
+			"iRemote2005000000030",
+			"iRemote2005000000038",
+			"iRemote2005000000061",
+			"iRemote2005000000095",
+			"iRemote2005000000118",
+			"iRemote2005000000125",
+			"iRemote2005000000223",
+			"iRemote2005000000253",
+			"iRemote2005000000264",
+			"iRemote2005000000290",
+			"iRemote2005000000295",
+			"iRemote2005000000306",
+			"iRemote2005000000315",
+			"iRemote2005000000346",
+			"iRemote2005000000387",
+			"iRemote2005000000389",
+			"iRemote2005000000408",
+			"iRemote2005000000416",
+			"iRemote2005000000421",
+			"iRemote2005000000428",
+			"iRemote2005000000435",
+			"iRemote2005000000445",
+			"iRemote2005000000541",
+			"iRemote2005000000573",
+			"iRemote2005000000585",
+			"iRemote2005000000598",
+			"iRemote2005000000632",
+			"iRemote2005000000654",
+			"iRemote2005000000657",
+			"iRemote2005000000658",
+			"iRemote2005000000659",
+			"iRemote2005000000665",
+			"iRemote2005000000669",
+			"iRemote2005000000673",
+			"iRemote2005000000676",
+			"iRemote2005000000678",
+			"iRemote2005000000680",
+			"iRemote2005000000681",
+			"iRemote2005000000686",
+			"iRemote2005000000700",
+			"iRemote2005000000710",
+			"iRemote2005000000712",
+			"iRemote2005000000734",
+			"iRemote2005000000746",
+			"iRemote2005000000763",
+			"iRemote2005000000775",
+			"iRemote2005000000788",
+			"iRemote2005000000810",
+			"iRemote2005000000813",
+			"iRemote3005000000158",
+			"iRemote3005000000275",
+			"iRemote3005000000338",
+			"iRemote3005000000345",
+			"iRemote3005000000346",
+			"iRemote3005000000390",
+			"iRemote3005000000404",
+			"iRemote3005000000466",
+			"iRemote3005000000496",
+			"iRemote3005000000588",
+			"iRemote3005000000602",
+			"iRemote4005000000020",
+			"iRemote4005000000026",
+			"iRemote4005000000035",
+			"iRemote4005000000075",
+			"iRemote4005000000089",
+			"iRemote4005000000092",
+			"iRemote4005000000097",
+			"iRemote4005000000101",
+			"iRemote4005000000102",
+			"iRemote4005000000108",
+			"iRemote4005000000113",
+			"iRemote4005000000128",
+			"iRemote4005000000140",
+			"iRemote4005000000148",
+			"iRemote4005000000157",
+			"iRemote4005000000160",
+			"iRemote4005000000179",
+			"iRemote4005000000183",
+			"iRemote4005000000188",
+			"iRemote4005000000192",
+			"iRemote4005000000198",
+			"iRemote4005000000203",
+			"iRemote4005000000210",
+			"iRemote4005000000213",
+			"iRemote4005000000216",
+			"iRemote4005000000226",
+			"iRemote4005000000241",
+			"iRemote4005000000242",
+			"iRemote4005000000248",
+			"iRemote4005000000254",
+			"iRemote4005000000255",
+			"iRemote4005000000256",
+			"iRemote4005000000259",
+			"iRemote4005000000262",
+			"iRemote4005000000277",
+			"iRemote4005000000307",
+			"iRemote4005000000339",
+			"iRemote4005000000368",
+			"iRemote4005000000370",
+			"iRemote4005000000419",
+			"iRemote4005000000444",
+			"iRemote4005000000460",
+			"iRemote4005000000481",
+			"iRemote4005000000491",
+			"iRemote4005000000527",
+			"iRemote4005000000551",
+			"iRemote4005000000577",
+			"iRemote4005000000589",
+			"iRemote4005000000651",
+			"iRemote4005000000760",
+			"iRemote4005000000790",
+			"iRemote4005000000794",
+			"iRemote4005000000799",
+			"iRemote4005000000810",
+			"iRemote4005000000811",
+			"iRemote4005000000812",
+			"iRemote4005000000832",
+			"iRemote4005000000833",
+			"iRemote4005000000836",
+			"iRemote4005000000837",
+			"iRemote4005000000840",
+			"iRemote4005000000841",
+			"iRemote4005000000842",
+			"iRemote4005000000843",
+			"iRemote4005000000844",
+			"iRemote4005000000845",
+			"iRemote4005000000846",
+			"iRemote4005000000849",
+			"iRemote4005000000850",
+			"iRemote4005000000851",
+			"iRemote4005000000852",
+			"iRemote4005000000854",
+			"iRemote4005000000856",
+			"iRemote4005000000857",
+			"iRemote4005000000859",
+			"iRemote4005000000860",
+			"iRemote4005000000861",
+			"iRemote4005000000862",
+			"iRemote4005000000863",
+			"iRemote4005000000865",
+			"iRemote4005000000866",
+			"iRemote4005000000867",
+			"iRemote4005000000868",
+			"iRemote4005000000869",
+			"iRemote4005000000870",
+			"iRemote4005000000871",
+			"iRemote4005000000872",
+			"iRemote4005000000873",
+			"iRemote4005000000874",
+			"iRemote4005000000875",
+			"iRemote4005000000876",
+			"iRemote4005000000877",
+			"iRemote4005000000878",
+			"iRemote4005000000879",
+			"iRemote4005000000880",
+			"iRemote4005000000881",
+			"iRemote4005000000882",
+			"iRemote4005000000883",
+			"iRemote4005000000884",
+			"iRemote4005000000885",
+			"iRemote4005000000886",
+			"iRemote4005000000887",
+			"iRemote4005000000888",
+			"iRemote4005000000889",
+			"iRemote4005000000890",
+			"iRemote4005000000891",
+			"iRemote4005000000892",
+			"iRemote4005000000894",
+			"iRemote4005000000895",
+			"iRemote4005000000896",
+			"iRemote4005000000897",
+			"iRemote4005000000898",
+			"iRemote4005000000900",
+			"iRemote4005000000901",
+			"iRemote4005000000902",
+			"iRemote4005000000903",
+			"iRemote4005000000904",
+			"iRemote4005000000906",
+			"iRemote4005000000907",
+			"iRemote4005000000908",
+			"iRemote4005000000909",
+			"iRemote4005000000911",
+			"iRemote4005000000912",
+			"iRemote4005000000913",
+			"iRemote4005000000914",
+			"iRemote4005000000915",
+			"iRemote4005000000916",
+			"iRemote4005000000918",
+			"iRemote4005000000919",
+			"iRemote4005000000920",
+			"iRemote4005000000921",
+			"iRemote4005000000922",
+			"iRemote4005000000923",
+			"iRemote4005000000924",
+			"iRemote4005000000925",
+			"iRemote4005000000926",
+			"iRemote4005000000927",
+			"iRemote4005000000929",
+			"iRemote4005000000930",
+			"iRemote4005000000931",
+			"iRemote4005000000933",
+			"iRemote4005000000934",
+			"iRemote4005000000935",
+			"iRemote4005000000940",
+			"iRemote4005000000942",
+			"iRemote4005000000943",
+			"iRemote4005000000944",
+			"iRemote4005000000946",
+			"iRemote4005000000947",
+			"iRemote4005000000948",
+			"iRemote4005000000949",
+			"iRemote4005000000952",
+			"iRemote4005000000953",
+			"iRemote4005000000955",
+			"iRemote4005000000956",
+			"iRemote4005000000957",
+			"iRemote4005000000958",
+			"iRemote4005000000959",
+			"iRemote4005000000960",
+			"iRemote4005000000962",
+			"iRemote4005000000963",
+			"iRemote4005000000965",
+			"iRemote4005000000966",
+			"iRemote4005000000969",
+			"iRemote4005000000970",
+			"iRemote4005000000971",
+			"iRemote4005000000972",
+			"iRemote4005000000973",
+			"iRemote4005000000974",
+			"iRemote4005000000975",
+			"iRemote4005000000976",
+			"iRemote4005000000977",
+			"iRemote4005000000978",
+			"iRemote4005000000980",
+			"iRemote4005000000981",
+			"iRemote4005000000982",
+			"iRemote4005000000984",
+			"iRemote4005000000986",
+			"iRemote4005000000987",
+			"iRemote4005000000988",
+			"iRemote4005000000989",
+			"iRemote4005000000990",
+			"iRemote4005000000991",
+			"iRemote4005000000992",
+			"iRemote4005000000995",
+			"iRemote4005000000996",
+			"iRemote4005000000997",
+			"iRemote4005000000999",
+			"iRemote4005000001000",
+			"iRemote4005000001001",
+			"iRemote4005000001002",
+			"iRemote4005000001003",
+			"iRemote4005000001005",
+			"iRemote4005000001006",
+			"iRemote4005000001008",
+			"iRemote4005000001009",
+			"iRemote4005000001010",
+			"iRemote4005000001011",
+			"iRemote4005000001012",
+			"iRemote4005000001014",
+			"iRemote4005000001016",
+			"iRemote4005000001017",
+			"iRemote4005000001020",
+			"iRemote4005000001022",
+			"iRemote4005000001023",
+			"iRemote4005000001024",
+			"iRemote4005000001025",
+			"iRemote4005000001026",
+			"iRemote4005000001027",
+			"iRemote4005000001029",
+			"iRemote4005000001033",
+			"iRemote4005000001036",
+			"iRemote4005000001040",
+			"iRemote4005000001048",
+			"iRemote4005000001049",
+			"iRemote4005000001051",
+			"iRemote4005000001052",
+			"iRemote5005000000116"};
+			*/
+}

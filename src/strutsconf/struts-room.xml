@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+      	<package name="romm" namespace="/room" extends="iremotebasepackage">
+           <action name="addroom" class="com.iremote.action.room.AddRoomAction" method="execute"/>
+           <action name="editroom" class="com.iremote.action.room.ModifyRoomAction" method="execute"/>
+           <action name="addroomappliance" class="com.iremote.action.room.AddRoomApplianceAction" method="execute"/>
+           <action name="deleteroomappliance" class="com.iremote.action.room.DeleteRoomApplianceAction" method="execute"/>
+           
+      </package>
+</struts>

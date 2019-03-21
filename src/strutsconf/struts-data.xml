@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+      	<package name="data" namespace="/data" extends="iremotebasepackage">
+           <action name="uploadInfo" class="com.iremote.action.databackup.UploadInfoAction" method="execute"/>
+           <action name="querybackuplist" class="com.iremote.action.databackup.QueryBackupListAction" method="execute"/>
+           <action name="downloadinfo" class="com.iremote.action.databackup.DownloadInfoAction" method="execute"/>
+           <action name="deleteinfo" class="com.iremote.action.databackup.DeleteInfoAction" method="execute"/>
+           <action name="querychangeddata" class="com.iremote.action.data.QueryDataAction" method="execute"/>
+           <action name="querychangeddata2" class="com.iremote.action.data.QueryDataAction2" method="execute"/>
+           <action name="synchronize2" class="com.iremote.action.PlatformDispatcherAction" method="execute">
+           		<interceptor-ref name="chainstack"/>
+           		<result name="asiainfo" type="chain">
+           			<param name="actionName">asiainfosynchronize2</param>
+           		</result>
+           		<result name="normal" type="chain">
+           			<param name="actionName">normalsynchronize2</param>
+           		</result>
+           </action>
+           <action name="normalsynchronize2" class="com.iremote.action.data.SynchronizeDataAction" method="execute"/>
+           <action name="asiainfosynchronize2" class="com.iremote.asiainfo.action.AsiainfoSynchronizeDataAction" method="execute"/>
+           <action name="synchronize3" class="com.iremote.action.data.SynchronizeData3Action" method="execute"/>
+           <action name="synchronize4" class="com.iremote.action.data.SynchronizeData4Action" method="execute"/>
+           <action name="synchronize5" class="com.iremote.action.data.SynchronizeData5Action" method="execute"/>
+           <action name="getremotetemperature" class="com.iremote.action.data.QueryRemoteTemperature" method="execute"/>
+           <action name="querylocationdata" class="com.iremote.action.data.QueryLocationDataAction" method="execute"/>
+      </package>
+</struts>

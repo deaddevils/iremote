@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class NingboSKYWORTH extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "NingboSKYWORTH";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//»ú¶¥ºÐ Äþ²¨´´Î¬(Ningbo SKYWORTH) 1
+"00e0470033823381102a65281f291f291f2920281f281f28202866281f28652a65296528662966286528202820286628652a65291f296628662865286628202820281f28652a1f291f29899b823c8086290000000000000000000000000000000000000000000000000000000000",
+//»ú¶¥ºÐ Äþ²¨´´Î¬(Ningbo SKYWORTH) 2
+"00e0470033823481102865282028202820281f281f281f2a1f2965291f2866286628662965286628652a1f291f29652866286628202865296629652865291f291f291f28652820282028899b823b8087280000000000000000000000000000000000000000000000000000000000",
+};
+}

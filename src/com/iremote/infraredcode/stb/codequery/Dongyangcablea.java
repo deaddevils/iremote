@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Dongyangcablea extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Dongyangcablea";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 东阳有线一(Dongyang cable a) 1
+"00e0470033823581102a1f281f292028652920282028662920286628652965291f296528662966281f281f2966291f28652a1f291f291f2920286528202866281f28652a652965296529899b823b8086290000000000000000000000000000000000000000000000000000000000",
+//机顶盒 东阳有线一(Dongyang cable a) 2
+"00e0470035823381112920282028202866281f291f2965291f296528652965281f28662866286529202a1f29652920286629202820281e281f2966291f2865291f296529652867286628899b823b8087280000000000000000000000000000000000000000000000000000000000",
+};
+}

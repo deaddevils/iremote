@@ -1,0 +1,93 @@
+package com.iremote.thirdpart.cobbe.event;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+import com.iremote.common.GatewayUtils;
+import com.iremote.common.IRemoteConstantDefine;
+import com.iremote.common.jms.ITextMessageProcessor;
+import com.iremote.common.jms.JMSUtil;
+import com.iremote.common.jms.vo.RemoteEvent;
+import com.iremote.common.jms.vo.RemoteOnlineEvent;
+import com.iremote.common.schedule.ScheduleManager;
+import com.iremote.domain.Remote;
+import com.iremote.domain.ZWaveDevice;
+import com.iremote.service.RemoteService;
+import com.iremote.service.ZWaveDeviceService;
+import com.iremote.thirdpart.wcj.domain.DoorlockPassword;
+import com.iremote.thirdpart.wcj.service.DoorlockPasswordService;
+
+public class CobbeGatewayLoginEventProcessor extends RemoteOnlineEvent implements ITextMessageProcessor
+{
+	private boolean hasdelayed = false ;
+	@Override
+	public void run()
+	{
+		if ( hasdelayed == false )
+		{
+			createTempPassword();
+			ScheduleManager.excutein(5, this);
+			hasdelayed = true ;
+		}
+		else 
+		{
+			RemoteEvent re = new RemoteEvent(super.getDeviceid(),super.getEventtime() , super.getTaskIndentify());	
+			JMSUtil.sendmessage(IRemoteConstantDefine.DOOR_LOCK_SEND_PASSOWRD, re);
+		}
+	}
+
+	@Override
+	public String getTaskKey()
+	{
+		return super.getDeviceid();
+	}
+
+	private void createTempPassword()
+	{
+		if ( !GatewayUtils.isCobbeLock(super.getDeviceid()) )
+			return ;
+		
+		RemoteService rs = new RemoteService();
+		Remote remote = rs.getIremotepassword(super.getDeviceid());
+		Integer oid = remote.getPhoneuserid();
+		if ( oid == null || oid == 0 )
+			return ;
+		
+		ZWaveDeviceService svr = new ZWaveDeviceService() ;
+		ZWaveDevice zd = svr.querybydeviceid(super.getDeviceid(), IRemoteConstantDefine.DEVICE_NUID_WIFI_LOCK);
+
+		if ( zd == null )
+			return ;
+		
+		DoorlockPasswordService dpsvr = new DoorlockPasswordService();
+		List<DoorlockPassword> elst = dpsvr.queryCobbePassword(zd.getZwavedeviceid());
+		
+		Random r = new Random(System.currentTimeMillis());
+		Set<Integer> usercodeset = new HashSet<Integer>();
+		for ( DoorlockPassword dp: elst)
+		{
+			if ( dp.getValidthrough().getTime() > System.currentTimeMillis())
+			{
+				usercodeset.add(dp.getUsercode());
+				continue;
+			}
+			dp.setStatus(IRemoteConstantDefine.DOOR_LOCK_PASSWORD_STATUS_ECLIPSED);
+		}
+		
+		int passwordcont = 10 ;
+		if ( remote.getRemotetype() == IRemoteConstantDefine.IREMOTE_TEYP_TONGXING )
+			passwordcont = 1 ;
+		for ( int i = 0 ; i < passwordcont ; i ++ )
+		{
+			int usercode = 0xf3 + i ;
+			if ( usercodeset.contains(usercode))
+				continue;
+			
+			DoorlockPassword doorlockpassword = DoorLockPasswordHelper.createLockTempPassword(zd.getZwavedeviceid(),usercode , String.format("%06d", r.nextInt(1000000)));
+
+			dpsvr.save(doorlockpassword);
+		}
+	}
+}

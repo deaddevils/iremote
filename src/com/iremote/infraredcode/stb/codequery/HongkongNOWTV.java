@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class HongkongNOWTV extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "HongkongNOWTV";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 香港NOWTV(Hongkong NOWTV) 1
+"00e047003382338110291f291f2920281f282028202866281f281f281f2a1f291f2920281f2866282028202866281f2965291f291f29202820286728202866291f296629652965296528899b823c8086280000000000000000000000000000000000000000000000000000000000",
+//机顶盒 香港NOWTV(Hongkong NOWTV) 2
+"00e047003382328110281f281f2a1f291f291f291f2865282028202820281f281f291f291f296528202820286628202865291f2920291f291f2966281f29662820286528662865296529899b823c8086290000000000000000000000000000000000000000000000000000000000",
+};
+}

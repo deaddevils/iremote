@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Xianningdigital extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Xianningdigital";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//»ú¶¥ºÐ ÏÌÄþÊý×Ö(Xianning digital) 1
+"00e04700348234810f281f29202820281f281f28202865291f2920282028652866291f2965291f281f2865291f2a652820281f281f28652920282028662820286528662865291f2965288994823b8086290000000000000000000000000000000000000000000000000000000000",
+//»ú¶¥ºÐ ÏÌÄþÊý×Ö(Xianning digital) 2
+"00e0470033823481112920281f281f291f291f292029652820281f281f2965286628202865282028202866291f2965291f281f29202865291f291f2965281f28652966286628202865288995823c8086280000000000000000000000000000000000000000000000000000000000",
+};
+}

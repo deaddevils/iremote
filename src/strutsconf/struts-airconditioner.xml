@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+      <package name="airconditioner" namespace="/airconditioner"  extends="iremotebasepackage">	      
+		<action name="addAirconditioner" class="com.iremote.action.airconditioner.AddAirconditionerAciton" method="execute"/>
+		<action name="viewAirconditioner" class="com.iremote.action.airconditioner.ViewAirconditioner" method="execute"/>
+		<action name="deleteairconditioner" class="com.iremote.action.airconditioner.DeleteAirconditionerAciton" method="execute"/>
+		<action name="airconditionerpage" class="com.iremote.action.airconditioner.AddAirconditionerPageAction" method="execute">
+			<result>/jsp/airconditioner/airconditionermenu.jsp</result> 
+    	</action>
+      </package>
+</struts>

@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.tv.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Digiline extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Digiline";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//电视 Digiline(Digiline) 1
+"00e02f0037363177323d323d323e313e323d323d323e663d3377323e95c43d3276323d323e313e333d323d323e313d683e3277313d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+//电视 Digiline(Digiline) 2
+"00e02f003733333d3277323e313d323e323d323d323e663d3377323d95c83d323d3176313e323e313d333d323d323e673e3176323e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+};
+}

@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.tv.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class BasicLine extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "BasicLine";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//电视 基本路线(Basic Line) 1
+"00e02f0037363176333e323d313d333d323d323d333d673d3277323d95ca3e3277323e323d323e323d323d333e323d673d3278323d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+//电视 基本路线(Basic Line) 2
+"00e02f003736323d3277323e323d323e323d323d333e673d3276323e95cb3e313d3278323e313d323e323d323d323e673d3277323e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+};
+}

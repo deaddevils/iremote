@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Shenyangmedianetwork extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Shenyangmedianetwork";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//»ú¶¥ºÐ ÉòÑô´«Ã½ÍøÂç(Shenyang media network) 1
+"00e0030033823480872800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+//»ú¶¥ºÐ ÉòÑô´«Ã½ÍøÂç(Shenyang media network) 2
+"00e047003382338110291f291f29202866292028202820281f292029662965291f291f296628652866286628652866281f281f291f28652920281f28202820286628652965291f296528899c823c8086280000000000000000000000000000000000000000000000000000000000",
+};
+}

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>  
+    <package name="device" namespace="/device"  extends="iremotebasepackage">
+		<action name="command" class="com.iremote.action.PlatformDispatcherAction" method="execute">
+			<interceptor-ref name="chainstack"/>
+			<result name="asiainfo" type="chain">
+				<param name="actionName">asiainfocommand</param>
+			</result>
+			<result name="normal" type="chain">
+				<param name="actionName">normalcommand</param>
+			</result>
+		</action>
+		<action name="normalcommand" class="com.iremote.action.device.DeviceCommandAction" method="execute"/>
+		<action name="asiainfocommand" class="com.iremote.asiainfo.action.AsiainfoDeviceCommandAction" method="execute"/>
+		<action name="setenablestatus" class="com.iremote.action.device.SetDeviceEnableStatusAction" method="execute"/>
+		<action name="querydevicestatus" class="com.iremote.action.device.QueryDeviceAction" method="execute"/>
+		<action name="querydevicelist" class="com.iremote.action.device.QueryDeviceListAction" method="execute"/>
+		<action name="setswitchdevicestatus" class="com.iremote.action.device.SetSwitchDeviceStatusAction" method="execute"/>
+		<action name="setlockadminpassword" class="com.iremote.thirdpart.wcj.action.SetAdminPassword" method="execute"/>
+		<action name="setlockpassword" class="com.iremote.thirdpart.wcj.action.SetTempPassword" method="execute"/>
+		<action name="setlockuserpassword" class="com.iremote.thirdpart.wcj.action.SetUserPassword" method="execute"/>
+		<action name="deletelockpassword" class="com.iremote.thirdpart.wcj.action.DeleteTempPassord" method="execute"/>
+		<action name="deletelockuserpassword" class="com.iremote.thirdpart.wcj.action.DeleteUserPassord" method="execute"/>
+		<action name="setlockfingerprintuser" class="com.iremote.thirdpart.wcj.action.SetLockFingerprintUserAction" method="execute"/>
+		<action name="deletelockfingerprintuser" class="com.iremote.thirdpart.wcj.action.DeleteFingerprintAction" method="execute"/>
+		<action name="resetdoorlock" class="com.iremote.thirdpart.wcj.action.ResetDoorlockAction" method="execute"/>
+		<action name="setandgetneostatus" class="com.iremote.action.device.SetAndGetNEOStatusAction" method="execute"/>
+		<action name="setandgetleedarsonstatus" class="com.iremote.action.device.SetAndGetLeedarsonStatusAction" method="execute"/>
+		<action name="setsirenconfig" class="com.iremote.action.device.SetSirenConfigAction" method="execute"/>
+		<action name="setefanceconfig" class="com.iremote.action.device.SetEfanceConfigAction" method="execute"/>
+		<action name="setefanceconfig2" class="com.iremote.action.device.SetEfanceConfigAction2" method="execute"/>
+		<action name="readefanceconfig" class="com.iremote.action.device.ReadEfanceConfigAction" method="execute"/>
+		<action name="readefanceconfigre" class="com.iremote.action.device.ReadEfanceConfigReAction" method="execute">
+			<result name="success">/jsp/device/efance/waitefance.jsp</result>
+		</action>
+	
+		<action name="switchon" class="com.iremote.action.device.SwitchOnDeviceAction" method="execute"/>
+		<action name="switchoff" class="com.iremote.action.device.SwitchOffDeviceAction" method="execute"/>
+		<action name="setdevicestatus" class="com.iremote.action.device.SetMultilevelSwitchDeviceStatusAction" method="execute"/>
+		<action name="stopdevice" class="com.iremote.action.device.MotorStopAction" method="execute"/>
+		<action name="querylogicdevicelist" class="com.iremote.action.device.QueryLogicDeviceListAction" method="execute"/>
+		<action name="operationbygowild" class="com.iremote.action.device.OperateDevicebyGowildAction" method="execute"/>
+		<action name="upgradedevice" class="com.iremote.action.device.DeviceUpgradeAction" method="execute"/>
+		<action name="addDeviceAction" class="com.iremote.action.device.AddDeviceAction" method="execute"/>
+
+		<action name="setdeivityname" class="com.iremote.action.device.SetDeiviceNameAction" method="execute"/>
+		<action name="setdscname" class="com.iremote.action.device.dsc.SetDSCDeviceNameAction" method="execute"/>
+		<action name="readDSCInfo" class="com.iremote.action.device.dsc.ReadDSCInfoAction" method="execute">
+			<result name="dsc">/jsp/device/dsc/readdsc.jsp</result>
+		</action>
+		<action name="waitdscresponse" class="com.iremote.action.device.dsc.WaitDSCInfoAction" method="execute">
+			<result name="dsc">/jsp/device/dsc/waitdsc.jsp</result>
+			<result name="back">/jsp/device/dsc/createdsc.jsp</result>
+		</action>
+		<action name="adddsc" class="com.iremote.action.device.dsc.AppAddDSCAction" method="execute">
+			<result name="success">/jsp/device/dsc/jumptoadddscpage.jsp</result>
+		</action>
+		<action name="editinfrareddevice" class="com.iremote.action.device.EditInfraredDeviceAction" method="execute"/>
+		<action name="validateName" class="com.iremote.action.device.ValidateNameAction" method="execute"/>
+		<action name="addzwavedevice" class="com.iremote.action.device.AddZWaveDeviceAction" method="execute"/>
+		<action name="addinfreraddevice" class="com.iremote.action.device.AddInfraredDeviceAction" method="execute"/>
+		<action name="deletezwavedevice" class="com.iremote.action.device.DeleteZwaveDeviceAction" method="execute"/>
+		<action name="deleteinfreraddevice" class="com.iremote.action.device.DeleteInfraredDeviceAction" method="execute"/>
+		<action name="operate" class="com.iremote.action.device.DeviceOperationAction" method="execute"/>
+
+		<action name="addDevice2Action" class="com.iremote.action.device.AddDevice2Action" method="execute"/>
+		<action name="addDevice2Remote" class="com.iremote.action.device.AddDevice2RemoteAction" method="execute"/>
+
+		<action name="setdeivitynamepage" class="com.iremote.action.device.SetDeiviceNamePageAction" method="execute">
+			<result name="zwavedevice">/jsp/device/deviceName/devicename.jsp</result>
+			<result name="camera">/jsp/device/deviceName/cameradetail.jsp</result>
+			<result name="infrareddevice">/jsp/device/deviceName/infrareddevice.jsp</result>
+			<result name="dsc">/jsp/device/dsc/editdsc.jsp</result>
+			<result name="neo">/jsp/device/neo/editneo.jsp</result>
+			<result name="leedarson">/jsp/device/leedarson/editleedarson.jsp</result>
+			<result name="siren">/jsp/device/siren/editsiren.jsp</result>
+			<result name="efance1">/jsp/device/efance/editefance1.jsp</result>
+			<result name="efance2">/jsp/device/efance/editefance2.jsp</result>
+			<result name="passthroughdevice">/jsp/device/deviceName/passthroughdevice.jsp</result>
+		</action>
+
+		<action name="listdeviceauthorize" class="com.iremote.action.device.authorize.ListDevicePrivilegeGrantAction" method="execute">
+			<result>/jsp/device/authorize/listdeviceauthorize.jsp</result>
+		</action>
+		<action name="deviceprivilegegrantpage" class="com.iremote.action.device.authorize.DevicePrivilegeGrantAction" method="forward">
+			<result>/jsp/device/authorize/deviceprivilegegrant.jsp</result>
+		</action>
+		<action name="deviceprivilegegrant" class="com.iremote.action.device.authorize.DevicePrivilegeGrantAction" method="execute">
+			<result name="success" type="chain">listdeviceauthorize2</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="deletedeviceprivilege" class="com.iremote.action.device.authorize.DeleteDevicePrivilegeAction" method="execute">
+			<result name="success" type="chain">listdeviceauthorize2</result>
+		</action>
+		<action name="adop" class="com.iremote.action.device.authorize.AuthorizeDeviceOperatePageAction" method="execute">
+			<interceptor-ref name="nosession"/>
+			<result>/jsp/device/authorize/authorizedeviceoperation.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="authorizedevicepperate" class="com.iremote.action.device.authorize.AuthorizeDeviceOperateAction" method="execute">
+			<interceptor-ref name="nosession"/>
+		</action>
+		<action name="listdeviceauthorize2" class="com.iremote.action.device.authorize.ListDevicePrivilegeGrantAction" method="execute">
+			<interceptor-ref name="chainstack"/>
+			<result>/jsp/device/authorize/listdeviceauthorize.jsp</result>
+		</action>
+
+		<action name="amazonrequest" class="com.iremote.action.amazon.smarthome.AmazonRequestAction" method="execute">
+			<interceptor-ref name="nosession"/>
+		</action>
+		<action name="setdevicename" class="com.iremote.action.device.SetDeviceNameAction" method="execute"/>
+		<action name="setarmstatus" class="com.iremote.action.device.SetArmStatusAction" method="execute"/>
+
+		<action name="addrawcmd" class="com.iremote.action.device.passthrough.AddRawCmdAction" method="execute"/>
+		<action name="editrawcmd" class="com.iremote.action.device.passthrough.EditRawCmdAction" method="execute"/>
+		<action name="deleterawcmd" class="com.iremote.action.device.passthrough.DeleteRawCmdAction" method="execute"/>
+		<action name="copyrawcmdsfromtemplate" class="com.iremote.action.device.passthrough.CopyRawCmdsFromTemplateAction" method="execute"/>
+		<action name="setbaudrate" class="com.iremote.action.device.passthrough.SetBaudRateAction" method="execute"/>
+		<action name="sendrawcmd" class="com.iremote.action.device.passthrough.SendRawCmdAction" method="execute"/>
+		<action name="studyinfraredrawcmd" class="com.iremote.action.device.passthrough.StudyInfraredRawCmdAction" method="execute"/>
+		<action name="querystatusofinfraredrawcmdstudy" class="com.iremote.action.device.passthrough.QueryStatusOfInfraredRawCmdStudyAction" method="execute"/>
+	</package>
+</struts>

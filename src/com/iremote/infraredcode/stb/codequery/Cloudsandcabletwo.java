@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Cloudsandcabletwo extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Cloudsandcabletwo";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 云和有线二(Clouds and cable two) 1
+"00e047003382348110281f291f291f2966281f282028662820286529652965281f296629662865282028202866281f2965291f291f291f2820286728202865281f296629652865296529899b823c8086290000000000000000000000000000000000000000000000000000000000",
+//机顶盒 云和有线二(Clouds and cable two) 2
+"00e047003382358110291f292028202866282028202965281f2a6529652966281f2966286628662820281f2865291f296529202820282028202866291f2965291f296529652965286528899c823b8087280000000000000000000000000000000000000000000000000000000000",
+};
+}

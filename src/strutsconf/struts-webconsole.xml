@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+      <package name="webconsole"  namespace="/webconsole" extends="json-default">
+            <interceptors>  
+           		<interceptor name="releaseInterceptor"  class="com.iremote.interceptor.HibernateReleaseInterceptor"/>  
+		    	<interceptor name="logInterceptor"  class="com.iremote.interceptor.LogInterceptor"/>
+		    	<interceptor name="httpsInterceptor"  class="com.iremote.interceptor.HttpsInterceptor"/>
+		    	<interceptor name="dataPrivilegeInterceptor"  class="com.iremote.interceptor.DataPrivilegeInterceptor"/>
+		    	<interceptor name="sessionInterceptor"  class="cn.com.isurpass.iremote.webconsole.interceptor.WebconsoleSessionSessionInterceptor"/>
+		        <interceptor-stack name="nosession">  
+		             <interceptor-ref name="defaultStack" />
+		             <interceptor-ref name="httpsInterceptor" />  
+		             <interceptor-ref name="releaseInterceptor" />  
+		             <interceptor-ref name="logInterceptor" />  
+		        </interceptor-stack>  
+		        <interceptor-stack name="session">  
+		             <interceptor-ref name="defaultStack" />
+		             <interceptor-ref name="httpsInterceptor" />  	 
+		             <interceptor-ref name="releaseInterceptor" />  
+		             <interceptor-ref name="sessionInterceptor" /> 
+		             <interceptor-ref name="dataPrivilegeInterceptor" />
+		             <interceptor-ref name="logInterceptor" />  
+		        </interceptor-stack>  
+		    </interceptors> 
+      		<default-interceptor-ref name="session"/>
+      		
+      	 <global-results> 
+		      <result name="nologin">/jsp/webconsole/webconsolelogin.jsp</result>  
+		      <result name="error">/jsp/error.jsp</result>
+		      <result name="NO_PRIVILEGE">/jsp/noprivilege.jsp</result>
+		      <result name="TOKEN_ERROR">/jsp/tokenerror.jsp</result>  
+	     	 <result name="SESSION_TIMEOUT">/jsp/sessiontimeout.jsp</result>
+		 </global-results> 
+		 
+          <action name="loginpage" class="com.iremote.action.ForwardAction" method="execute">
+          	  <interceptor-ref name="nosession"/>
+              <result>/jsp/webconsole/webconsolelogin.jsp</result>
+          </action>
+          <action name="dorlinklogin" class="com.iremote.action.ForwardAction" method="execute">
+          	  <interceptor-ref name="nosession"/>
+              <result>/jsp/webconsole/dorlinklogin.jsp</result>
+          </action>
+       	  <action name="ametalogin" class="com.iremote.action.ForwardAction" method="execute">
+          	  <interceptor-ref name="nosession"/>
+              <result>/jsp/webconsole/ametalogin.jsp</result>
+          </action>
+          <action name="login" class="cn.com.isurpass.iremote.webconsole.user.Login" method="execute">
+              <interceptor-ref name="nosession"/>
+              <result type="redirectAction">listgateway</result> 
+              <result name="error">/jsp/webconsole/webconsolelogin.jsp</result>
+              <result name="dorlinklogin">/jsp/webconsole/dorlinklogin.jsp</result>
+              <result name="ametalogin">/jsp/webconsole/ametalogin.jsp</result>
+              <result name="manage">/jsp/manage/board.jsp</result>
+          </action>
+          <action name="maillogin" class="cn.com.isurpass.iremote.webconsole.user.MailLogin" method="execute">
+              <interceptor-ref name="nosession"/>
+              <result type="redirectAction">listgateway</result>
+              <result name="error">/jsp/webconsole/webconsolelogin.jsp</result>
+              <result name="dorlinklogin">/jsp/webconsole/dorlinklogin.jsp</result>
+              <result name="ameta">/jsp/webconsole/ametalogin.jsp</result>
+              <result name="manage">/jsp/manage/board.jsp</result>
+          </action>
+          <action name="listgateway" class="com.iremote.action.gateway.ListGatewayAction" method="execute">
+              <result>/jsp/gateway/listgateway.jsp</result>
+          </action>
+          <action name="listappliance" class="com.iremote.action.device.ListApplianceAction" method="execute">
+              <result>/jsp/device/deviceName/listappliance.jsp</result>
+          </action>       
+           <action name="menu" class="com.iremote.action.ForwardAction" method="execute">
+              <result>/jsp/manage/menu.jsp</result>
+          </action>
+          <action name="setgatewayownerpage" class="com.iremote.action.ForwardAction" method="execute">
+              <result>/jsp/gateway/setgatewayowner.jsp</result>
+          </action>
+          <action name="setgatewayowner" class="com.iremote.action.gateway.SetGatewayOwnerAction" method="execute">
+              <result>/jsp/gateway/setgatewayowner.jsp</result>
+          </action>
+          <action name="deletegatewayowner" class="com.iremote.action.gateway.DeleteGatewayOwnerAction" method="execute">
+              <result type= "redirectAction" name="success">listgateway</result>
+          </action>
+          <action name="webtest" class="com.iremote.action.ForwardAction" method="execute">
+              <result>/jsp/webconsole/webtest.jsp</result>
+          </action>
+          <action name="apkversion" class="cn.com.isurpass.iremote.manage.ApkVersionDetailAction" method="execute">
+              <result>/jsp/manage/apkversion.jsp</result>
+          </action>
+          <action name="editapkversion" class="cn.com.isurpass.iremote.manage.EditApkVersionAction" method="execute">
+           	<result name="success" type="json"/>
+          </action>
+          <action name="querydeviceinitsetting" class="cn.com.isurpass.iremote.manage.QueryDeviceInitSettingAction" method="execute">
+           		<result>/jsp/manage/deviceinitsetting.jsp</result>
+          </action>
+          <action name="importbluetoothlockpage" class="cn.com.isurpass.iremote.manage.ImportBluetoothLockAction" method="execute">
+              <result>/jsp/manage/importbluetoothlockpage.jsp</result>
+          </action>
+          <action name="adddeviceinitsetting" class="cn.com.isurpass.iremote.manage.AddDeviceInitSettingAction" method="execute">
+           		<result name="success" type="json"/>
+          </action>
+          <action name="addbluetoothlockdata" class="cn.com.isurpass.iremote.manage.AddBlueToothLockInitSettingAction" method="execute">
+           		<result name="success" type="json"/>
+          </action>
+          <action name="generatedevicepage" class="cn.com.isurpass.iremote.manage.GenerateDevicePageAction" method="execute">
+              <result>/jsp/manage/generatedevice.jsp</result>
+          </action>
+          <action name="generatedevice" class="cn.com.isurpass.iremote.manage.GenerateDeviceAction" method="execute">
+              <result name="success" type="json"/>
+          </action>
+          <action name="dumpdeviceinitsetting" class="cn.com.isurpass.iremote.manage.DumpDeviceInitSettingAction" method="execute">
+           		<result name="success" type="stream">
+           			<param name="contentType">text/plain;charset=UTF-8</param>  
+           			<param name="contentDisposition">attachment;filename=mid2type.conf</param> 
+           			<param name="inputName">data</param>
+           		</result>
+          </action>
+          <action name="changedeviceaction" class="cn.com.isurpass.iremote.opt.gateway.ChangeDeviceidAction" method="execute">
+              <result name="success" type="json"></result>
+          </action>
+          <action name="createthirdpart" class="cn.com.isurpass.iremote.opt.gateway.CreateThirdPartAction" method="execute">
+              <result name="success">/jsp/webconsole/showaddthirdpart.jsp</result>
+              <result name="error">/jsp/webconsole/error.jsp</result>
+          </action>
+          <action name="changedeviceenv" class="cn.com.isurpass.iremote.opt.gateway.ChangeDeviceEvnAction" method="execute">
+              <result name="success" type="json">
+              </result>
+          </action>
+          <action name="environmentalpage" class="com.iremote.action.ForwardAction" method="execute">
+              <result>/jsp/webconsole/environmental.jsp</result>
+          </action>
+          <action name="registuserpage" class="com.iremote.action.mailuser.RegistUserAction" method="execute">
+              <result>/jsp/mailuser/registuserpage.jsp</result>
+          </action>
+          <action name="forbiddenremotepage" class="com.iremote.action.ForwardAction" method="execute">
+              <result>/jsp/webconsole/forbiddenremotepage.jsp</result>
+          </action>
+          <action name="cooperative"  class="com.iremote.action.notification.QueryThirdPartAction" method="execute">
+              <result>/jsp/webconsole/cooperative.jsp</result>
+          </action>
+          <action name="cooperativeincrease" class="com.iremote.action.ForwardAction" method="execute">
+             <result>/jsp/webconsole/cooperativeincrease.jsp</result>
+          </action>
+          <action name="creategatewayqrcode" class="cn.com.isurpass.iremote.opt.qrcode.CreateOneGatewayQrcodeAction" method="execute">
+              <result>/jsp/qrcode/createonegatewayqrcode.jsp</result>
+          </action>
+         <action name="gatewayqrcode" class="cn.com.isurpass.iremote.opt.qrcode.CreateOneQrcodeImageAction" method="execute">
+              <result type="stream">       
+			        <param name="contentType">image/png</param>        
+			        <param name="inputName">inputStream</param>       
+			        <param name="contentDisposition">attachment;filename=${filename}</param>
+			  </result> 
+          </action>
+          <action name="createdscdevicepage" class="com.iremote.action.device.dsc.AddDSCDevicePageAction" method="execute">
+              <result>/jsp/device/dsc/createdsc.jsp</result>
+          </action>
+          <action name="createdevicepage" class="com.iremote.action.device.AddDevicePageAction" method="execute">
+              <result>/jsp/device/createdevice.jsp</result>
+          </action>
+
+          <action name="createdscdevice" class="com.iremote.action.device.dsc.AddDSCDeviceAction" method="execute">
+				<result name="success" type="json">
+              </result>
+          </action>
+		<action name="reloadoemproductorsetting" class="cn.com.isurpass.iremote.manage.ReloadOemProductorSettingAction" method="execute">
+              <result name="success" type="json"/>
+        </action>
+        <action name="logout" class="com.iremote.action.phoneuser.LogoutAction" method="execute">
+        	<interceptor-ref name="nosession"/>
+        	<!-- <result name="success" type="redirect">/jsp/webconsole/webconsolelogin.jsp</result>
+        	<result name="ameta" type="redirect">/jsp/webconsole/ametalogin.jsp</result> -->
+        	<result name="success" type="redirectAction">  
+		        <param name="actionName">loginpage</param>  
+		    </result> 
+		    <result name="ameta" type="redirectAction">  
+		        <param name="actionName">ametalogin</param>  
+		    </result> 
+        </action>
+      </package>
+</struts>

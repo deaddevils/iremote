@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>  
+    <package name="gateway" namespace="/gateway"  extends="iremotebasepackage">	      
+          <action name="setgatewayowner" class="com.iremote.action.gateway.SetGatewayOwnerAction" method="execute"/>
+          <action name="editgatewaypage" class="com.iremote.action.gateway.ModifyGatewayPageAction" method="execute">
+          		<result>/jsp/gateway/editgateway.jsp</result>
+          </action>
+          <action name="editgateway" class="com.iremote.action.gateway.ModifyGatewayAction" method="execute"/>
+          <action name="deletegateway" class="com.iremote.action.gateway.DeleteGatewayOwnerAction" method="execute"/>
+          <action name="onlinegatewaynumber" class="cn.com.isurpass.iremote.opt.gateway.QueryOnlineGatewayAction" method="execute"/>
+          <action name="querygatewaydeviceextendinfo" class="com.iremote.action.gateway.QueryGatewayandDeviceExtendInfo" method="execute"/>
+          <action name="startaddzwavedevice" class="com.iremote.action.gateway.StartAddingZWaveDeviceAction" method="execute"/>
+          <action name="stopaddzwavedevice" class="com.iremote.action.gateway.StopAddingZWaveDeviceAction" method="execute"/>
+          <action name="querystatusofaddzwavedevice" class="com.iremote.action.gateway.QueryStatusofAddZwavedeviceAction" method="execute"/>
+          <action name="setwifiaccount" class="com.iremote.action.gateway.SetWIFIAccountGatewayAction" method="execute"/>
+          <action name="forbiddenorrecover" class="com.iremote.action.gateway.ForbiddenOrRecoverGatewayAction" method="execute"/>
+          <action name="settimezone" class="com.iremote.action.gateway.SetTimezoneAction" method="execute"/>  
+      </package>
+
+</struts>

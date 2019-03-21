@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+		<package name="thirdpart" namespace="/thirdpart" extends="iremotebasepackage">
+			<default-interceptor-ref name="nosession"/>
+			<action name="login" class="com.iremote.thirdpart.action.ThirdPartLoginAction" method="execute"/>
+		</package>
+		
+		<package name="thirdpart_event" namespace="/thirdpart/event" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+			<action name="queryevent" class="com.iremote.thirdpart.action.event.QueryEventAction" method="execute"/>
+		</package>
+		
+		<package name="thirdpart_jwzh" namespace="/thirdpart/jwzh" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+			<action name="updateremotesecuritykey" class="com.iremote.thirdpart.jwzh.UpdateRemoteSecurityKey" method="execute"/>
+		</package>
+		
+		<package name="thirdpart_wcj" namespace="/thirdpart/wcj" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+			<action name="unlock" class="com.iremote.thirdpart.wcj.action.UnlockAction" method="execute"/>
+			<action name="setlockpassword" class="com.iremote.thirdpart.wcj.action.SetTempPassword" method="execute"/>
+			<action name="setlockuserpassword" class="com.iremote.thirdpart.wcj.action.SetUserPassword" method="execute"/>
+			<action name="setlockadminpassword" class="com.iremote.thirdpart.wcj.action.SetAdminPassword" method="execute"/>
+			<action name="setlockfingerprintuser" class="com.iremote.thirdpart.wcj.action.SetLockFingerprintUserAction" method="execute"/>
+			<action name="synlockdata" class="com.iremote.thirdpart.wcj.action.SynlockdataAction" method="execute"/>
+			<action name="querytemppassword" class="com.iremote.thirdpart.cobbe.action.QueryDoorlockTempPasswordAction" method="execute"/>
+		</package>
+		
+		<package name="thirdpart_rentinghouse" namespace="/thirdpart/zufang" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+			
+			<action name="unlock" class="com.iremote.thirdpart.wcj.action.UnlockAction" method="execute"/>
+			<action name="setlockpassword" class="com.iremote.thirdpart.wcj.action.SetTempPassword" method="execute"/>
+			<!-- <action name="setlockuserpassword" class="com.iremote.thirdpart.wcj.action.SetUserPassword" method="execute"/> -->
+			<action name="setlockuserpassword" class="com.iremote.thirdpart.wcj.action.SetPasswordAction" method="execute"/>
+			<action name="setlockuserpasswordwithoutdate" class="com.iremote.thirdpart.wcj.action.SetUserPasswordWithoutDate" method="execute"/>
+			<action name="setlockadminpassword" class="com.iremote.thirdpart.wcj.action.SetAdminPassword" method="execute"/>
+			<action name="setlockfingerprintuser" class="com.iremote.thirdpart.wcj.action.SetLockFingerprintUserAction" method="execute"/>
+			<!-- <action name="setlockfingerprintuserinfo" class="com.iremote.thirdpart.wcj.action.SetLockFingerprintUserInfoAction" method="execute"/> -->
+			<action name="setlockfingerprintuserinfo" class="com.iremote.thirdpart.wcj.action.SetFingerprintAction" method="execute"/>
+			<action name="editlockuservalidperiod" class="com.iremote.thirdpart.wcj.action.EditLockUserValidPeriodAction" method="execute"/>
+			<action name="updatelockuservalidtimeasynchronous" class="com.iremote.thirdpart.wcj.action.UpdateLockUserValidTimeAction" method="execute"/>
+			<action name="deletelockpassword" class="com.iremote.thirdpart.wcj.action.DeleteTempPassord" method="execute"/>
+			<!-- <action name="deletelockuserpassword" class="com.iremote.thirdpart.wcj.action.DeleteUserPassord" method="execute"/> -->
+			<action name="deletelockuserpassword" class="com.iremote.thirdpart.wcj.action.DeletePasswordAction" method="execute"/>
+			<!-- <action name="deletelockfingerprintuser" class="com.iremote.thirdpart.wcj.action.DeleteFingerprintAction" method="execute"/> -->
+			<action name="deletelockfingerprintuser" class="com.iremote.thirdpart.wcj.action.DeleteFingerprint" method="execute"/>
+			<action name="resetdoorlock" class="com.iremote.thirdpart.wcj.action.ResetDoorlockAction" method="execute"/>
+			<action name="grantdevice" class="com.iremote.thirdpart.rentinghouse.action.GrantDevicePrivilegeAction" method="execute"/>
+			<action name="ungrantdevice" class="com.iremote.thirdpart.rentinghouse.action.UngrantDevicePrivilegeAction" method="execute"/>
+			<action name="unalarmdevicewarning" class="com.iremote.thirdpart.rentinghouse.action.UnalarmDeviceNotificationAction" method="execute"/>
+			<action name="sendsms" class="com.iremote.action.sms.SendSMSAction" method="execute"/>
+			<action name="opendevice" class="com.iremote.action.device.SwitchOnDeviceAction" method="execute"/>
+		    <action name="closedevice" class="com.iremote.action.device.SwitchOffDeviceAction" method="execute"/>		    
+		    <action name="querygatewayqrcode" class="cn.com.isurpass.iremote.opt.qrcode.QueryGatewayQrcodeAction" method="execute"/>
+			<action name="setdevicestatus" class="com.iremote.action.device.SetMultilevelSwitchDeviceStatusAction" method="execute"/>
+			<action name="querytemppassword" class="com.iremote.thirdpart.cobbe.action.QueryDoorlockTempPasswordAction" method="execute"/>
+			<!-- <action name="addDoorlockCard" class="com.iremote.action.device.doorlock.AddDoorlockCardAction" method="execute"/> -->
+			<action name="addDoorlockCard" class="com.iremote.thirdpart.wcj.action.SetCardAction" method="execute"/>
+			<!-- <action name="deleteDoorlockCard" class="com.iremote.action.device.doorlock.DeleteDoorlockCardAction" method="execute"/> -->
+			<action name="deleteDoorlockCard" class="com.iremote.thirdpart.wcj.action.DeleteCardAction" method="execute"/>
+			<action name="querythirdpartdevices" class="com.iremote.thirdpart.rentinghouse.action.QueryThirdpartDeviceAction" method="execute"/>
+			<action name="readfingerpring" class="com.iremote.thirdpart.rentinghouse.action.ReadFingerpringAction" method="execute">
+				<interceptor-ref name="nosession"/>
+			</action>
+			<action name="querystatusofreadfingerpring" class="com.iremote.thirdpart.rentinghouse.action.QueryStatusOfReadFingerpringAction" method="execute">
+				<interceptor-ref name="nosession"/>
+			</action>
+			<action name="startaddingfingerprintuser" class="com.iremote.thirdpart.wcj.action.StartAddingFingerPrintUserAction" method="execute"/>
+			<action name="scanqrcode" class="com.iremote.thirdpart.wcj.action.ScanQrCodeAction" method="execute" />
+		</package>
+		
+		<package name="thirdpart_rentinghouse_comnunity" namespace="/thirdpart/zufang/comnunityadministrator" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+			<action name="addadministrator" class="com.iremote.thirdpart.rentinghouse.action.AddAdminstratorAction" method="execute"/>
+			<action name="updatepassword" class="com.iremote.thirdpart.rentinghouse.action.UpdateAdministratorPasswordAction" method="execute"/>
+			<action name="checkadministrator" class="com.iremote.thirdpart.rentinghouse.action.CheckAdministratorAction" method="execute"/>
+		</package>
+		
+		<package name="thirdpart_zufang_infrareddevice" namespace="/thirdpart/zufang/infrareddevice" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+			<action name="queryproductor" class="com.iremote.action.infraredcode.QueryProductorAction" method="execute"/>
+			<action name="querycodeliberay" class="com.iremote.action.infraredcode.QueryCodeLiberayAction" method="execute"/>
+			<action name="setcodeid" class="com.iremote.action.infraredcode.SetInfreredDevicecodeid" method="execute"/>
+			<action name="acoperate" class="com.iremote.action.infraredcode.ACOperateAction" method="execute"/>
+			<action name="stboperate" class="com.iremote.action.infraredcode.TvStbOperationAction" method="execute"/>
+		</package>
+		
+		<package name="thirdpart_zufang_gateway" namespace="/thirdpart/zufang/gateway" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+           <action name="startaddzwavedevice" class="com.iremote.action.gateway.StartAddingZWaveDeviceAction" method="execute"/>
+           <action name="stopaddzwavedevice" class="com.iremote.action.gateway.StopAddingZWaveDeviceAction" method="execute"/>
+           <action name="deletegateway" class="com.iremote.thirdpart.wcj.action.DeleteGatewayAction" method="execute"/>
+		</package>
+
+		<package name="thirdpart_zufang_device" namespace="/thirdpart/zufang/device" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+           <action name="deletezwavedevice" class="com.iremote.action.device.DeleteZwaveDeviceAction" method="execute"/>
+		</package>
+		<package name="user" namespace="/thirdpart/user" extends="iremotebasepackage">
+			<default-interceptor-ref name="thirdpartsession"/>
+           <action name="setadvertbanner" class="com.iremote.action.phoneuser.SetAvertBannerAction" method="execute"/>
+		</package>
+</struts>

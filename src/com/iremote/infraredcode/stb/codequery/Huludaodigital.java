@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Huludaodigital extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Huludaodigital";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//»ú¶¥ºÐ ºùÂ«µºÊý×Ö(Huludao digital) 1
+"00e0470033823481102820281f281f2966291f281f2865291f2965286628662820286529662965281f291f2965291f2865282028202820281f28652a1f29652920286629662866296628899c823b8087280000000000000000000000000000000000000000000000000000000000",
+//»ú¶¥ºÐ ºùÂ«µºÊý×Ö(Huludao digital) 2
+"00e047003382328110281f2920291f29652920281f29662820286628662866291f296529652966291f2920286528202866281f281f281f2a1f2965291f28662820286628652966296528899b823c8086290000000000000000000000000000000000000000000000000000000000",
+};
+}

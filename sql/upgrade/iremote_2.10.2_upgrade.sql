@@ -1,0 +1,2 @@
+alter table zwavedevice add column  `productor2` varchar(32) collate utf8_bin default NULL after `version1`;
+alter table zwavedevice add column  `model2` varchar(32) collate utf8_bin default NULL after `productor2`;

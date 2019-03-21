@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Jiangyincable extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Jiangyincable";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 江阴有线(Jiangyin cable) 1
+"00e04700338232810f291f2a1f291f291f291f291f281f281f28652966286529652865296528652965291f291f28662865296628202820282028652866291f2a1f291f296528662865288994823c8086280000000000000000000000000000000000000000000000000000000000",
+//机顶盒 江阴有线(Jiangyin cable) 2
+"00e04700338234810f291f291f291f291f291f29202820281f29652965286528652866296529652865281f2820296529652965281f281f291f2a65296528202820281f296428662965298993823b8086280000000000000000000000000000000000000000000000000000000000",
+};
+}

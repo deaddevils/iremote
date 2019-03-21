@@ -1,0 +1,103 @@
+a.button_back 
+{
+background: transparent url('/iremote/images/button_back.png') no-repeat scroll top right; 
+background-size:100% 100%; 
+color: #ffffff; 
+display: block; 
+width:70px;
+height:35px;
+text-decoration: none; 
+}
+
+a.button_back span 
+{
+	display:block;
+	font: normal 18px arial, sans-serif; 
+	font-family:"Microsoft YaHei";
+	margin-left: 20px; 
+	padding-top:8px;
+}
+
+a.button_back:active 
+{
+	background: transparent url('/iremote/images/button_back_s.png') no-repeat scroll top right; 
+	background-size:100% 100%; 
+}
+
+.input_text
+{
+	width:80%;
+	height:24px;
+	font: normal 18px arial, sans-serif; 
+	font-family:"Microsoft YaHei";
+	margin-top:8px;
+}
+
+a.button_delete
+{
+color: #ffffff; 
+display: block; 
+text-decoration: none; 
+}
+
+a.button_delete:active 
+{
+}
+
+a.button
+{
+color: #ffffff; 
+display: block; 
+width:70px;
+height:35px;
+margin-right: 10px; 
+text-decoration: none; 
+background-color:#3bafda; 
+border-radius:5px;
+}
+
+a.button span 
+{
+	display:block;
+	font: normal 18px arial, sans-serif; 
+	font-family:"Microsoft YaHei";
+	margin-right:18px; 
+	padding-top:8px;
+}
+
+a.button:active 
+{
+	background-color:#297a98; 
+}
+
+.title_c
+{
+	color: #ffffff; 
+	display:block;
+	font: normal 20px arial, sans-serif; 
+	font-family:"Microsoft YaHei";
+}
+
+.tip_img
+{
+	widch:240px;
+	height:240px;
+	margin-top:60px; 
+}
+
+.message
+{
+	display:block;
+	font: normal 20px arial, sans-serif; 
+	font-family:"Microsoft YaHei";
+	margin-top: 30px; 
+}
+
+.content
+{
+	display:block;
+	font: normal 16px arial, sans-serif; 
+	font-family:"Microsoft YaHei";
+	margin-top: 10px; 
+}
+

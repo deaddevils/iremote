@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>  
+    <package name="camera" namespace="/camera"  extends="iremotebasepackage">	      
+    	  <action name="addcamera" class="com.iremote.action.camera.AddCameraAction" method="execute"/>
+          <action name="deletecamera" class="com.iremote.action.camera.DeleteCameraAction" method="execute"/>
+          <action name="editcamera" class="com.iremote.action.camera.EditCameraAction" method="execute"/>
+    </package>
+      
+    <package name="lechange" namespace="/camera/lechange"  extends="iremotebasepackage">	      
+          <action name="registrandcode" class="com.iremote.action.camera.lechange.LeChangeRandCodeAction" method="execute"/>
+          <action name="regist" class="com.iremote.action.camera.lechange.LeChangeRegistAction" method="execute"/>
+          <action name="addcamera" class="com.iremote.action.camera.lechange.AddLeChangeCameraAction" method="execute"/>
+          <action name="querytoken" class="com.iremote.action.camera.lechange.QueryTokenAction" method="execute"/>
+          <action name="queryusertoken" class="com.iremote.action.camera.lechange.QueryUserTokenAction" method="execute"/>
+          <action name="querycamerastatus" class="com.iremote.action.camera.lechange.QueryLecChangeCameraStatusAction" method="execute"/>
+          <action name="lechangewarningreport" class="com.iremote.action.camera.lechange.LeChangeWarningReportAction" method="execute">
+          		<interceptor-ref name="nosession"/>
+          </action>
+        <action name="authorizecamera" class="com.iremote.action.camera.lechange.AuthorizeCameraAction" method="execute"/>
+        <action name="querycameraauthinfo" class="com.iremote.action.camera.lechange.QueryCameraAuthInfoAction" method="execute"/>
+        <action name="queryauthorizationqrcode" class="com.iremote.action.camera.lechange.QueryAuthorizationQrCodeAction" method="execute"/>
+
+    </package>
+    
+    <package name="eques" namespace="/camera/eques"  extends="iremotebasepackage">	     
+          <action name="equeseventreport" class="cn.com.isurpass.camera.eques.action.CameraEventReportAction" method="execute">
+          		<interceptor-ref name="nosession"/>
+          </action>
+    </package>
+</struts>

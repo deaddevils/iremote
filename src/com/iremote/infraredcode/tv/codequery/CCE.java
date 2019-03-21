@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.tv.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class CCE extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "CCE";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//电视 克拉珀龙(CCE) 1
+"00e04b0033821481022761271d2762271d2761271d271d271e278100275a261d275a271e2659261d281d271e278607821a81012761261d2662271d2861281d271d261e278101275a271d275a271d275a261d271d271d270000000000000000000000000000000000000000000000",
+//电视 克拉珀龙(CCE) 2
+"00e04b0033821381002761271d2761271d2761271d271e271d278101285a271d275a271e265a261d261d271e278606821a81002661271d2761271d2761271d271e271d278100275a271d275a271d275b261d261d261d270000000000000000000000000000000000000000000000",
+};
+}

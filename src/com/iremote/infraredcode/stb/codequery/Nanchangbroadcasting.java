@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Nanchangbroadcasting extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Nanchangbroadcasting";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 南昌广电(Nanchang broadcasting) 1
+"00e047003382348111296728202820281f291f2920291f291f291f29202820286628652865286628652a65291f291f28202820282028202820281f28652a652965286529652865286628899c823b8087280000000000000000000000000000000000000000000000000000000000",
+//机顶盒 南昌广电(Nanchang broadcasting) 2
+"00e0470033823581102966281f2820282028202820291f281f281f291f291f296528652866286629652866281f281f281f291f29202820281f281f296629652865296529652866296628899b823c8087280000000000000000000000000000000000000000000000000000000000",
+};
+}

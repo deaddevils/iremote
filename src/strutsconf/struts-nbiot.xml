@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>  
+    <package name="nbiot" namespace="/nbiot"  extends="iremotebasepackage">	      
+    		<action name="devicedatachanged" class="cn.com.isurpass.nbiot.action.DeviceDataChangedAction" method="execute">
+          		<interceptor-ref name="nosession"/>
+          	</action>
+		    <action name="aliiotdevicereport" class="cn.com.isurpass.nbiot.action.aliiot.AliIoTDeviceReportAction" method="execute">
+          		<interceptor-ref name="nosession"/>
+          	</action>
+    		<action name="chongqingonenet" class="cn.com.isurpass.nbiot.action.chongqingonnet.ChongQingOneNetAction" method="execute">
+          		<interceptor-ref name="nosession"/>
+          		<result name="inittest" type="stream">  
+		            <param name="contentType">text/html</param>  
+		            <param name="inputName">inputStream</param>  
+		        </result> 
+          	</action>
+    </package>
+
+</struts>

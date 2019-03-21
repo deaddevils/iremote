@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class Lanzhoupetrochemical extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "Lanzhoupetrochemical";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//机顶盒 兰州石化(Lanzhou petrochemical) 1
+"00e0470033823481102866282028202820281f291f292028202866282028652866286529652865286529202820286628652866281f29652965286529652820282028202865281e281f298994823b8086280000000000000000000000000000000000000000000000000000000000",
+//机顶盒 兰州石化(Lanzhou petrochemical) 2
+"00e04700338232810f2865291f291f282028202820281f291f2965291f296528642866286529652865281f281f296528652965291f2865296428662965291f291f281f2865291f2920288993823b8085280000000000000000000000000000000000000000000000000000000000",
+};
+}

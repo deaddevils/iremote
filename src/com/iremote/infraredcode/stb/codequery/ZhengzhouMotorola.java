@@ -1,0 +1,22 @@
+package com.iremote.infraredcode.stb.codequery;
+
+import com.iremote.infraredcode.tv.codequery.CodeQueryBase;
+
+public class ZhengzhouMotorola extends CodeQueryBase {
+
+		@Override
+		public String getProductor() {
+			return "ZhengzhouMotorola";
+		}
+		@Override
+		public String[] getQueryCodeLiberay() {
+			return querycode;
+		}
+		private static String[] querycode = new String[]
+{
+//»ú¶¥ºÐ Ö£ÖÝÄ¦ÍÐÂÞÀ­(Zhengzhou Motorola) 1
+"00e04700338234810f2a1f281f281f28652920291f2965281f2865296628662820286528662965291f291f2865291f2a65291f291f281f281f28652920286628202864286428652965298995823b8086280000000000000000000000000000000000000000000000000000000000",
+//»ú¶¥ºÐ Ö£ÖÝÄ¦ÍÐÂÞÀ­(Zhengzhou Motorola) 2
+"00e0470033823481102820282028202866281f28202866281f296529652865291f296628662865282028202866291f2965291f29202820281f2965291f2965281f2865296628662865288995823b8086290000000000000000000000000000000000000000000000000000000000",
+};
+}

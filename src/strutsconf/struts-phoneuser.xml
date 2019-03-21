@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+    <package name="phoneuser" namespace="/phoneuser" extends="iremotebasepackage">
+
+        <default-interceptor-ref name="nosession"/>
+        <action name="randcode" class="com.iremote.action.sms.RandCodeAction" method="execute"/>
+        <action name="randcodeforregister" class="com.iremote.action.sms.RandcodeforRegisteAction" method="execute"/>
+        <action name="register" class="com.iremote.action.phoneuser.RegistePhoneUserAction" method="execute"/>
+        <action name="login" class="com.iremote.action.phoneuser.PhoneUserLoginAction" method="execute"/>
+        <action name="updatepassword" class="com.iremote.action.phoneuser.PhoneUserUpdatepasswordAction" method="execute">
+          <interceptor-ref name="session"/>
+          <result type="json"/>
+        </action>
+
+        <action name="setusername" class="com.iremote.action.phoneuser.SetUserNameAction" method="execute">
+            <interceptor-ref name="session"/>
+            <result type="json"/>
+        </action>
+        <action name="setuserinfo" class="com.iremote.action.phoneuser.SetUserInfoAction" method="execute">
+            <interceptor-ref name="session"/>
+            <result type="json"/>
+        </action>
+
+        <action name="randcodeforresetpassword" class="com.iremote.action.sms.RandcodeforResetpasswordAction" method="execute"/>
+        <action name="resetpassword" class="com.iremote.action.phoneuser.PhoneUserResetpassword" method="execute"/>
+        <action name="reportposition" class="com.iremote.action.phoneuser.PhoneUserReportPosition" method="execute">
+          <interceptor-ref name="session"/>
+          <result type="json"/>
+        </action>
+        <action name="setarmstatus" class="com.iremote.action.phoneuser.SetPhoneUserArmStatus" method="execute">
+            <interceptor-ref name="session"/>
+        </action>
+
+        <action name="reportnetwork" class="com.iremote.action.phoneuser.PhoneUserReportNetWork" method="execute">
+          <interceptor-ref name="session"/>
+          <result type="json"/>
+        </action>
+
+        <action name="gowildqrcode" class="com.iremote.action.qrcode.GowildQRCodeAction" method="execute">
+        <result type="stream">
+            <param name="contentType">image/png</param>
+            <param name="inputName">imageStream</param>
+        </result>
+        </action>
+        <action name="setuserlanguange" class="com.iremote.action.phoneuser.SetUserLanguageAction" method="execute">
+            <interceptor-ref name="session"/>
+            <result type="json"/>
+        </action>
+        <action name="support" class="com.iremote.action.phoneuser.SupportAction" method="execute">
+            <interceptor-ref name="session"/>
+            <result type="json"/>
+        </action>
+		<action name="setavatar" class="com.iremote.action.phoneuser.SetAvatarAction" method="execute">
+			<interceptor-ref name="session"/>
+           	<result name="success" type="json"/>
+        </action>
+        <action name="transfer" class="com.iremote.action.phoneuser.TransferAction" method="execute">
+            <interceptor-ref name="session"/>
+            <result name="success" type="json"/>
+        </action>
+    </package>
+</struts>

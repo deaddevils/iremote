@@ -1,0 +1,1 @@
+ALTER TABLE `notification`  ADD COLUMN `familyid` int(9) DEFAULT NULL AFTER `phoneuserid`;

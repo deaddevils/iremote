@@ -1,0 +1,6 @@
+insert into messagetemplate(`key`, language, platform, value) values("setpartitionarmstatusfailed", "zh_CN",0,"情景联动防区${partitionname}操作失败");
+insert into messagetemplate(`key`, language, platform, value) values("setpartitionarmstatusfailed", "en_US",0,"Scene associated Partition ${partitionname} failed");
+
+ALTER TABLE `iremote`.`timer` ADD COLUMN `timetype` INT(9) DEFAULT 0;
+
+ALTER TABLE `iremote`.`doorlockpassword` ADD COLUMN `tid` varchar(256);

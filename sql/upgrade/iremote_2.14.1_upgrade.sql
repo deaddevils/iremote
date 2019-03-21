@@ -1,0 +1,1 @@
+ALTER TABLE `infrareddevice` ADD COLUMN `encrypted` TINYINT(1) NOT NULL DEFAULT '0';

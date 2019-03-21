@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+  		<constant name="struts.custom.i18n.resources" value="pageMessageResource,resource/setDeviceName"></constant>
+		<constant name="struts.multipart.saveDir" value="/tmp"/>
+		
+		<include file="strutsconf/struts-iremotebasepackage.xml"/>
+		<include file="strutsconf/struts-advert.xml"/>
+		<include file="strutsconf/struts-data.xml"/>
+		<include file="strutsconf/struts-gateway.xml"/>
+		<include file="strutsconf/struts-device.xml"/>
+		<include file="strutsconf/struts-device-lock.xml"/>
+		<include file="strutsconf/struts-devicegroup.xml"/>
+		<include file="strutsconf/struts-scene.xml"/>
+		<include file="strutsconf/struts-infraredcode.xml"/>
+		<include file="strutsconf/struts-infraredcode2.xml"/>
+		<include file="strutsconf/struts-phoneuser.xml"/>
+		<include file="strutsconf/struts-mailuser.xml"/>
+		<include file="strutsconf/struts-share.xml"/>
+		<include file="strutsconf/struts-thirdpart.xml"/>
+		<include file="strutsconf/struts-warning.xml"/>
+		<include file="strutsconf/struts-webconsole.xml"/>
+		<include file="strutsconf/struts-airconditioner.xml"/>
+		<include file="strutsconf/struts-qrcode.xml"/>
+		<include file="strutsconf/struts-room.xml"/>
+		<include file="strutsconf/struts-camera.xml"/>
+		<include file="strutsconf/struts-nbiot.xml"/>
+		<include file="strutsconf/struts-partition.xml"/>
+		<include file="strutsconf/struts-dsc.xml"/>
+		<include file="strutsconf/struts-device-template.xml"/>
+<!--
+      <package name="aisainofuser" namespace="/aisainofuser" extends="iremotebasepackage">
+           <action name="login" class="com.iremote.action.asiainfouser.AsiainfoUserLoginAction" method="execute"/>
+		   <action name="registremote" class="com.iremote.action.asiainfouser.IRemoteRegistActon" method="execute"/>
+	</package>
+ -->  
+  </struts>

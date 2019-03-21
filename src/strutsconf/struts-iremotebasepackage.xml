@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>
+  <package name="iremotebasepackage" extends="json-default">
+	 		<interceptors>  
+		    	<interceptor name="releaseInterceptor"  class="com.iremote.interceptor.HibernateReleaseInterceptor"/>  
+		    	<interceptor name="logInterceptor"  class="com.iremote.interceptor.LogInterceptor"/>
+		    	<interceptor name="httpsInterceptor"  class="com.iremote.interceptor.HttpsInterceptor"/>
+		    	<interceptor name="sessionInterceptor"  class="com.iremote.interceptor.SessionInterceptor"/>
+		    	<interceptor name="dataPrivilegeInterceptor"  class="com.iremote.interceptor.DataPrivilegeInterceptor"/>
+		    	<interceptor name="thirdpartTokenCheckInterceptor"  class="com.iremote.interceptor.ThirdpartTokenCheckInterceptor"/>
+		    	<interceptor name="thirdPartDataPrivilegeInterceptor"  class="com.iremote.interceptor.ThirdPartDataPrivilegeInterceptor"/>
+		    	
+		        <interceptor-stack name="nosession">  
+		             <interceptor-ref name="defaultStack" />
+		             <interceptor-ref name="httpsInterceptor" />  
+		             <interceptor-ref name="releaseInterceptor" />  
+		             <interceptor-ref name="logInterceptor" />  
+		        </interceptor-stack>  
+				<interceptor-stack name="session">  
+		             <interceptor-ref name="defaultStack" />  
+		             <interceptor-ref name="httpsInterceptor" />
+		             <interceptor-ref name="releaseInterceptor" />
+		             <interceptor-ref name="sessionInterceptor" />
+		             <interceptor-ref name="logInterceptor" />  
+		             <interceptor-ref name="dataPrivilegeInterceptor" />
+		        </interceptor-stack>
+		        <interceptor-stack name="chainstack">  
+		             <interceptor-ref name="defaultStack" />  
+		        </interceptor-stack>  
+				<interceptor-stack name="thirdpartsession">  
+		             <interceptor-ref name="defaultStack" />  
+		             <interceptor-ref name="httpsInterceptor" />
+		             <interceptor-ref name="releaseInterceptor" />
+		             <interceptor-ref name="thirdpartTokenCheckInterceptor" />
+		             <interceptor-ref name="logInterceptor" />  
+		             <interceptor-ref name="thirdPartDataPrivilegeInterceptor" />
+		        </interceptor-stack>
+		    </interceptors> 
+		    
+		   <default-interceptor-ref name="session"/>
+		   <default-action-ref name="error"/>
+		   
+		   <global-results>
+	     	 <result name="SESSION_TIMEOUT">/jsp/sessiontimeout.jsp</result>
+	     	 <result name="success" type="json">
+	     	 	<param name="excludeNullProperties">true</param>
+	     	 	<param name="ignoreHierarchy">false</param>
+	     	 </result>
+	     	 <result name="TOKEN_ERROR">/jsp/tokenerror.jsp</result>
+	     	 <result name="HTTPS_REQUIRED">/jsp/httpsrequired.jsp</result>
+	     	 <result name="NO_PRIVILEGE">/jsp/noprivilege.jsp</result>
+	     	 <result name="error">/jsp/error.jsp</result>
+	      </global-results>
+	
+		<action name="error" class="com.iremote.action.ForwardAction" method="execute">
+			<result>/jsp/error.jsp</result>
+		</action>
+		
+		          
+          <action name="download" class="com.iremote.action.app.AppDownloadAction" method="execute">
+          		<interceptor-ref name="nosession"/>
+          		<result>/jsp/app/download.jsp</result>
+          </action>
+	 </package>
+</struts>
